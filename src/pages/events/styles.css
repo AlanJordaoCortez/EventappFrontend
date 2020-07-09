@@ -1,0 +1,66 @@
+.post-event-container {
+    background-color: #fafafa;
+    color: #645c5c;
+    text-align: center;
+    padding: 10px;
+}
+.post-event-container #post-btn {
+    background-color: #3463ca;
+    border-radius: 15px;
+    color: white;
+    padding: 16px 32px;
+    text-align: center;
+    font-size: 16px;
+    margin: 4px 2px;
+    opacity: 0.6;
+    transition: 0.3s;
+    display: inline-block;
+    text-decoration: none;
+    cursor: pointer;
+}
+#post-btn:hover {opacity: 1}
+
+.event-list {
+    max-width: 700px;
+    margin: 20px auto 0;
+    padding: 0 20px;
+}
+
+.event-list article {
+    background: #ffffff;
+    border: 1px solid #dddddd;
+    border-radius: 5px;
+    padding: 20px;
+    margin-bottom: 20px;
+}
+
+.event-list article p {
+    font-size: 16px;
+    color: #6b6a6a;
+    margin-top: 5px;
+    line-height: 24px;
+}
+.event-list article a {
+    background-color: #071e9f;
+    color: white;
+    padding: 8px;
+    border: #100a0a solid 1px;
+    border-radius: 25px;
+    text-decoration: none;
+}
+
+.event-list .actions {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+.event-list .actions button {
+    padding: 10px;
+    border-radius: 5px;
+    border: 0;
+    background: #444444;
+    color: #fff;
+    font-size: 16px;
+    font-weight: bold;
+}

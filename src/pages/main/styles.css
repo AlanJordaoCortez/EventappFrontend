@@ -1,0 +1,84 @@
+.home-page {
+    background-color: #3C6997;
+    font-family: 'Segoe UI', Tahoma, Verdana, sans-serif;
+}
+.home-page header {
+    background-color: #3C6997;
+    padding: 0.25rem;
+}
+.home-page  header h1 {
+    color: white;
+}
+.home-page nav {
+    display: flex;
+}
+.home-page  ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    /*background-color: #023C40;*/
+  }
+  
+  .home-page li {
+    float: left;
+    border: 1px solid white;
+}
+
+.home-page li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+.home-page input {
+    height: 50%;
+    margin: 0.75rem;
+    border: 1px solid grey;
+    border-radius: 10px;
+    padding: 2px 2px;
+}
+.home-page .search-btn {
+    background-color: #3C6997;
+    border: #3C6997;
+    color: white;
+    margin-right: 0.2rem;
+}
+
+
+.home-container {
+    display: flex;
+    align-items: center;
+    background-color: #3C6997;
+    color: white;
+    border-bottom: 1.5px solid white;
+}
+
+.home-container .about {
+    font-family: sans-serif;
+    font-size: 1.5rem;
+    padding-left: 1.8rem;
+}
+
+.home-container figure {
+    width: 35%;
+}
+.home-container figure img {
+    width: 100%;
+}
+
+.home-container#second p a {
+    color: #f5f7f7;
+}
+
+.home-page .form {
+    background-color: #3C6997;
+    color: white;
+    border-bottom: 1.5px solid white;
+    display: flex;
+    flex-direction: column;
+}
+.home-page .form form input {
+    width: 40%;
+}
