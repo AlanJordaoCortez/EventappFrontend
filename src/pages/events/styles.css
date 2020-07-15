@@ -40,13 +40,23 @@
     margin-top: 5px;
     line-height: 24px;
 }
-.event-list article a {
+.event-list article button {
     background-color: #071e9f;
     color: white;
     padding: 8px;
     border: #100a0a solid 1px;
     border-radius: 25px;
     text-decoration: none;
+}
+
+.event-list article a {
+    background-color: #a10303;
+    color: white;
+    padding: 8px;
+    border: #100a0a solid 1px;
+    border-radius: 25px;
+    text-decoration: none;
+    float: right;
 }
 
 .event-list .actions {

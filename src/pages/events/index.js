@@ -10,6 +10,7 @@ export default class Events extends Component {
         redirect: null 
     };
 
+    eventID;
 
     componentDidMount() {
         this.loadEvents();
@@ -18,9 +19,6 @@ export default class Events extends Component {
     loadEvents = async () => { 
         const response = await api.get('/events/all'); //gets the data from api acessing the route passed
 
-        //const { docs, ...eventInfo } = response.data;
-        //this.setState({events: docs, eventInfo});
-
         this.setState({events: response.data.events}); //set the list events in the state to be the data from the api
     };
 
@@ -28,19 +26,16 @@ export default class Events extends Component {
         this.setState({ redirect: "/events/new" });
     }
 
+    editEvent(eventId) {
+        this.eventID = eventId;
+        console.log(this.eventID);
+        this.setState({ redirect: `/events/${eventId}` }); 
+
+    }
+
     deleteEvent(eventId) {
-        console.log(eventId);
-        alert()
         api.delete(`/events/${eventId}`, {});
     };
-
-    /*
-    prevPage = () => {};
-
-    nextPage = () => {
-        const { page, eventInfo } = this.state;
-
-    };*/
 
 
     render() {
@@ -68,7 +63,9 @@ export default class Events extends Component {
                         <p><b>Organizer: </b>{event.organizer}</p>
                         <p><b>Description: </b>{event.description}</p>  
                         <br></br>
-                        <a onClick={() => this.deleteEvent(event._id)}>Delete Event</a>
+                        <button onClick={() => this.editEvent(event._id)}>Edit</button>
+                        <a onClick={() => this.deleteEvent(event._id)}>Delete</a>
+                        
                     </article>
                 ))}
                     <div className="actions">
