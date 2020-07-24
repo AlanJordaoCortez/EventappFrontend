@@ -89,16 +89,3 @@ export default class UpdateEventForm extends Component {
     }
 
 };
-
-/*<label for="event_name">Event Name: </label>
-                    <input type="text" name="event_name" id="event_name" ref={(c) => this.eventNameInput = c} placeholder={this.state.newEvent['name']} />
-                    <label for="event_location">Event Location: </label>
-                    <input type="text" name="event_location" id="event_location" ref={(c) => this.eventLocationInput = c} placeholder={this.state.newEvent['location']} value={this.state.newEvent['location']} />
-                    <label for="event_time">Event Date: </label>
-                    <input type="text" name="event_time" id="event_time" ref={(c) => this.eventDateInput = c} placeholder={this.state.newEvent['date']} value={this.state.newEvent['date']} /> 
-                    <label for="event_organizer">Event Organizer: </label>
-                    <input type="text" name="event_organizer" id="event_organizer" ref={(c) => this.eventOrganizerInput = c} placeholder={this.state.newEvent['organizer']} value={this.state.newEvent['organizer']} />
-                    <label for="event_description">Event Description: </label>
-                    <input type="text" name="event_description" id="event_description" ref={(c) => this.eventDescriptionInput = c} placeholder={this.state.newEvent['description']} value={this.state.newEvent['description']} />
-
-                    <input type="submit" value="Post!" id="edit-button" onClick={() => this.updateEvent(this.state.ID)} */

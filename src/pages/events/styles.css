@@ -20,6 +20,11 @@
 }
 #post-btn:hover {opacity: 1}
 
+#spinner {
+    text-align: center;
+    color: #100a0a;
+}
+
 .event-list {
     max-width: 700px;
     margin: 20px auto 0;

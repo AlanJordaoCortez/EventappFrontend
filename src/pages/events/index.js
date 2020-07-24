@@ -2,12 +2,13 @@ import React, { Component } from 'react';
 import api from "../../services/api";
 import "./styles.css";
 import { Link, Redirect } from 'react-router-dom';
-
+import Spinner from 'react-bootstrap/Spinner';
 
 export default class Events extends Component {
     state = {
         events: [],
-        redirect: null 
+        redirect: null, 
+        loading: false,
     };
 
     eventID;
@@ -20,6 +21,7 @@ export default class Events extends Component {
         const response = await api.get('/events/all'); //gets the data from api acessing the route passed
 
         this.setState({events: response.data.events}); //set the list events in the state to be the data from the api
+        this.setState({loading: true});
     };
 
     newEvent = () => {
@@ -40,6 +42,7 @@ export default class Events extends Component {
 
     render() {
         const { events } = this.state; //sets the constant events with the value from the state
+        const { loading } = this.state;
 
         if (this.state.redirect) { //if redirect in the state variable is true(not null or false) 
             return <Redirect to={this.state.redirect} /> //page is redirected to the redirect set in state
@@ -53,8 +56,7 @@ export default class Events extends Component {
                     <button id="post-btn" onClick={this.newEvent}>Post Event</button>
                 
                 </div>
-                
-                <div className="event-list">
+                {loading ? <div className="event-list">
                 {events.map(event => (
                     <article key={event._id}>
                         <strong>{event.name}</strong>
@@ -72,7 +74,9 @@ export default class Events extends Component {
                         <button /*disabled={page === 1}*/ onClick={this.prevPage}>Before</button>
                     <button /*disabled={page === lastPage}*/ onClick={this.nextPage}>Next</button>
                     </div>
-                </div>
+                </div> : <Spinner animation="border" role="status" id="spinner">
+                    <span className="sr-only">Loading...</span>
+                </Spinner>}
             </div>
         )
     }
