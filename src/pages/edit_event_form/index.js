@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import "./styles.css";
 import api from '../../services/api';
 import { Redirect } from 'react-router-dom';
+import Spinner from 'react-bootstrap/Spinner';
 
 export default class UpdateEventForm extends Component {
     state = {
@@ -12,6 +13,7 @@ export default class UpdateEventForm extends Component {
         eventDate: '',
         eventOrganizer: '',
         eventDescription: '',
+        loading: false,
     };
 
     componentDidMount() {
@@ -28,13 +30,13 @@ export default class UpdateEventForm extends Component {
         organizer: response.data.events['organizer'],
         description: response.data.events['description'],
     };
-        
         //changes the newEvent data to the information in the database
         this.setState({eventName: this.newEvent['name']});
         this.setState({eventLocation: this.newEvent['location']});
         this.setState({eventDate: this.newEvent['date']});
         this.setState({eventOrganizer: this.newEvent['organizer']});
         this.setState({eventDescription: this.newEvent['description']});
+        this.setState({loading: true});
     };
 
     updateEvent = async (ID) => {
@@ -59,14 +61,16 @@ export default class UpdateEventForm extends Component {
 
 
     render() {
+        const { loading } = this.state;
 
         if (this.state.redirect) { //if redirect in the state variable is true(not null or false) 
             return <Redirect to={this.state.redirect} /> //page is redirected to the redirect set in state
         }
         
         return (
-            <div className="edit_event-container">
-            <div class="form">
+            <div>
+               {loading ? <div className="edit_event-container">
+               <div class="form">
                 <h2>Post you event here!</h2>
                 <form>
                     <label for="event_name">Event Name: </label>
@@ -83,7 +87,10 @@ export default class UpdateEventForm extends Component {
                     <input type="submit" value="Post!" id="edit-button" onClick={() => this.updateEvent(this.state.ID)} />
                 </form>
             </div>
-        </div>
+            </div> : <Spinner animation="border" role="status" id="spinner">
+                    <span className="sr-only">Loading...</span>
+                </Spinner>} 
+            </div>        
         )
         
     }

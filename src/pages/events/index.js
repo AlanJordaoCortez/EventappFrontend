@@ -36,6 +36,7 @@ export default class Events extends Component {
     }
 
     deleteEvent(eventId) {
+        this.setState({ redirect: "/events/all" });
         api.delete(`/events/${eventId}`, {});
     };
 
@@ -66,7 +67,7 @@ export default class Events extends Component {
                         <p><b>Description: </b>{event.description}</p>  
                         <br></br>
                         <button onClick={() => this.editEvent(event._id)}>Edit</button>
-                        <a onClick={() => this.deleteEvent(event._id)}>Delete</a>
+                        <button id="del-btn" onClick={() => this.deleteEvent(event._id)}>Delete</button>
                         
                     </article>
                 ))}
